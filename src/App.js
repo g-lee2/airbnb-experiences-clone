@@ -2,21 +2,26 @@ import './App.css';
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Card from "./components/Card";
+import data from "./data";
+
 
 function App() {
-  return (
-    <div>
-      <Hero />
-      <Navbar />
-      <Card 
-          img="./images/katie-zaferes.png"
-          rating="5.0"
-          reviewCount={6}
-          country="USA"
-          title="Life Lessons with Katie Zaferes"
-          price={136}
+  const cardElements = data.map(person => {
+      return <Card 
+          img={person.coverImg}
+          reviewCount={person.stats.reviewCount} 
+          location={person.location} 
+          title={person.title}
+          price={person.price}
+          rating={person.stats.rating}
           />
-    </div>
+  })
+  return (
+      <div>
+          <Navbar />
+          <Hero />
+          {cardElements}
+      </div>
   )
 }
 
