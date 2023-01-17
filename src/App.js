@@ -8,19 +8,23 @@ import data from "./data";
 function App() {
   const cardElements = data.map(person => {
       return <Card 
+          key={person.id}
           img={person.coverImg}
           reviewCount={person.stats.reviewCount} 
           location={person.location} 
           title={person.title}
           price={person.price}
           rating={person.stats.rating}
+          openSpots={person.openSpots}
           />
   })
   return (
       <div>
           <Navbar />
           <Hero />
-          {cardElements}
+          <section className="cards-list">
+            {cardElements}
+          </section>
       </div>
   )
 }
