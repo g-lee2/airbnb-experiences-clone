@@ -7,17 +7,14 @@ import data from "./data";
 
 function App() {
   const cardElements = data.map(person => {
-      return <Card 
+      return (
+        <Card
           key={person.id}
-          img={person.coverImg}
-          reviewCount={person.stats.reviewCount} 
-          location={person.location} 
-          title={person.title}
-          price={person.price}
-          rating={person.stats.rating}
-          openSpots={person.openSpots}
-          />
+          person={person}
+        />
+      )    
   })
+
   return (
       <div>
           <Navbar />
